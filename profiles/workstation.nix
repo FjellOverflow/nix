@@ -24,6 +24,4 @@
     pulse.enable = true;
     # jack.enable = true;
   };
-
-  programs.firefox.enable = true;
 }
