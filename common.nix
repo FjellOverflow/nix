@@ -17,11 +17,31 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
+    bat
     curl
     git
     nano
+    ncdu
+    tmux
+    tree
     wget
   ];
+
+  programs.fish = {
+    enable = true;
+    shellAliases = {
+      cat = "bat";
+    };
+    interactiveShellInit = ''
+      set fish_greeting
+    '';
+  };
+
+  programs.starship = {
+    enable = true;
+  };
+
+  users.users.fjelloverflow.shell = pkgs.fish;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
