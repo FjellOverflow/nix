@@ -94,5 +94,18 @@
         "md.obsidian.Obsidian.desktop"
       ];
     };
+
+    dconf.settings."org/gnome/desktop/app-folders" = {
+      folder-children = [ "Disk" ];
+    };
+
+    dconf.settings."org/gnome/desktop/app-folders/folders/Disk" = {
+      name = "Disk";
+      apps = [
+        "org.gnome.baobab.desktop"
+        "org.gnome.DiskUtility.desktop"
+        "gparted.desktop"
+      ];
+    };
   };
 }
