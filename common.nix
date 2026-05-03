@@ -8,7 +8,7 @@
   users.users.fjelloverflow = {
     isNormalUser = true;
     description = "FjellOverflow";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
     #  thunderbird
     ];
@@ -48,4 +48,8 @@
   system.stateVersion = "25.11";
 
   security.sudo.wheelNeedsPassword = false;
+
+  services.tailscale.enable = true;
+
+  virtualisation.docker.enable = true;
 }
