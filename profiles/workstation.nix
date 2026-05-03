@@ -153,7 +153,7 @@
       name = "Sync";
       apps = [
         "org.freefilesync.FreeFileSync.desktop"
-        "org.freefilesync.RealTimeSync.desktop"
+        "org.freefilesync.FreeFileSync.RealTimeSync.desktop"
         "syncthing-ui.desktop"
       ];
     };
