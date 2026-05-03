@@ -96,7 +96,7 @@
     };
 
     dconf.settings."org/gnome/desktop/app-folders" = {
-      folder-children = [ "Disk" "Media" "Office" "Settings" "Sync" "System" "Utilities" ];
+      folder-children = [ "Disk" "Graphics" "Media" "Office" "Settings" "Sync" "System" "Utilities" ];
     };
 
     dconf.settings."org/gnome/desktop/app-folders/folders/Disk" = {
@@ -105,6 +105,14 @@
         "org.gnome.baobab.desktop"
         "org.gnome.DiskUtility.desktop"
         "gparted.desktop"
+      ];
+    };
+
+    dconf.settings."org/gnome/desktop/app-folders/folders/Graphics" = {
+      name = "Graphics";
+      apps = [
+        "org.gimp.GIMP.desktop"
+        "org.inkscape.Inkscape.desktop"
       ];
     };
 
@@ -122,12 +130,12 @@
       name = "Office";
       apps = [
         "org.libreoffice.LibreOffice.desktop"
-        "org.libreoffice.LibreOffice.Base.desktop"
-        "org.libreoffice.LibreOffice.Calc.desktop"
-        "org.libreoffice.LibreOffice.Draw.desktop"
-        "org.libreoffice.LibreOffice.Impress.desktop"
-        "org.libreoffice.LibreOffice.Math.desktop"
-        "org.libreoffice.LibreOffice.Writer.desktop"
+        "org.libreoffice.LibreOffice.base.desktop"
+        "org.libreoffice.LibreOffice.calc.desktop"
+        "org.libreoffice.LibreOffice.draw.desktop"
+        "org.libreoffice.LibreOffice.impress.desktop"
+        "org.libreoffice.LibreOffice.math.desktop"
+        "org.libreoffice.LibreOffice.writer.desktop"
       ];
     };
 
@@ -145,7 +153,8 @@
       name = "Sync";
       apps = [
         "org.freefilesync.FreeFileSync.desktop"
-        "syncthing-gtk.desktop"
+        "org.freefilesync.RealTimeSync.desktop"
+        "syncthing-ui.desktop"
       ];
     };
 
