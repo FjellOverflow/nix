@@ -2,19 +2,25 @@
 
 {
   time.timeZone = "Europe/Oslo";
-
   i18n.defaultLocale = "en_US.UTF-8";
+
+  nixpkgs.config.allowUnfree = true;
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 14d";
+  };
+
+  system.stateVersion = "25.11";
+  security.sudo.wheelNeedsPassword = false;
 
   users.users.fjelloverflow = {
     isNormalUser = true;
     description = "FjellOverflow";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
-    packages = with pkgs; [
-    #  thunderbird
-    ];
+    shell = pkgs.fish;
   };
-
-  nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
     bat
@@ -29,7 +35,8 @@
 
   programs.fish.enable = true;
 
-  users.users.fjelloverflow.shell = pkgs.fish;
+  services.tailscale.enable = true;
+  virtualisation.docker.enable = true;
 
   home-manager.users.fjelloverflow = { pkgs, ... }: {
     home.stateVersion = "25.11";
@@ -45,21 +52,5 @@
     };
 
     programs.starship.enable = true;
-  };
-
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  system.stateVersion = "25.11";
-
-  security.sudo.wheelNeedsPassword = false;
-
-  services.tailscale.enable = true;
-
-  virtualisation.docker.enable = true;
-
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 14d";
   };
 }

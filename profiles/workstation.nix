@@ -4,12 +4,15 @@
   networking.networkmanager.enable = true;
 
   services.xserver.enable = true;
-  services.displayManager.gdm.enable = true;
-  services.desktopManager.gnome.enable = true;
   services.xserver.xkb = {
     layout = "no";
     variant = "";
   };
+  services.xserver.excludePackages = with pkgs; [ xterm ];
+
+  services.displayManager.gdm.enable = true;
+  services.desktopManager.gnome.enable = true;
+  services.gnome.core-apps.enable = false;
 
   console.keyMap = "no";
 
@@ -22,7 +25,12 @@
     pulse.enable = true;
   };
 
-  services.gnome.core-apps.enable = false;
+  services.mullvad-vpn.enable = true;
+  services.syncthing = {
+    enable = true;
+    user = "fjelloverflow";
+    dataDir = "/home/fjelloverflow/Syncthing";
+  };
 
   documentation.nixos.enable = false;
 
@@ -37,8 +45,8 @@
     gnome-boxes
     gnome-calculator
     gnome-connections
-    gnome-font-viewer
     gnome-disk-utility
+    gnome-font-viewer
     gnome-logs
     gnome-system-monitor
     gnome-text-editor
@@ -59,11 +67,6 @@
     gnome-tour
   ];
 
-  services.xserver.excludePackages = with pkgs; 
-  [
-    xterm
-  ];
-
   services.flatpak = {
     enable = true;
     packages = [
@@ -73,18 +76,11 @@
       "com.spotify.Client"
       "com.usebruno.Bruno"
       "md.obsidian.Obsidian"
-      "org.gimp.GIMP"
       "org.freefilesync.FreeFileSync"
+      "org.gimp.GIMP"
       "org.inkscape.Inkscape"
       "org.libreoffice.LibreOffice"
       "org.videolan.VLC"
     ];
-  };
-
-  services.mullvad-vpn.enable = true;
-  services.syncthing = {
-    enable = true;
-    user = "fjelloverflow";
-    dataDir = "/home/fjelloverflow/Syncthing";
   };
 }
