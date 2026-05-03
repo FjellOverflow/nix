@@ -80,4 +80,11 @@
       "org.videolan.VLC"
     ];
   };
+
+  services.mullvad-vpn.enable = true;
+  services.syncthing = {
+    enable = true;
+    user = "fjelloverflow";
+    dataDir = "/home/fjelloverflow/Syncthing";
+  };
 }

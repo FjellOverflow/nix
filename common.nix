@@ -52,4 +52,10 @@
   services.tailscale.enable = true;
 
   virtualisation.docker.enable = true;
+
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 14d";
+  };
 }
