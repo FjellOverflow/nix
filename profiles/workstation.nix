@@ -83,4 +83,16 @@
       "org.videolan.VLC"
     ];
   };
+
+  home-manager.users.${user} = { ... }: {
+    dconf.settings."org/gnome/shell" = {
+      favorite-apps = [
+        "org.gnome.Ptyxis.desktop"
+        "com.brave.Browser.desktop"
+        "code.desktop"
+        "org.gnome.Nautilus.desktop"
+        "md.obsidian.Obsidian.desktop"
+      ];
+    };
+  };
 }
