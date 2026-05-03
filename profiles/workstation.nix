@@ -85,6 +85,41 @@
   };
 
   home-manager.users.${user} = { ... }: {
+    dconf.settings."org/gnome/desktop/interface" = {
+      clock-format = "24h";
+      clock-show-weekday = true;
+    };
+
+    dconf.settings."org/gnome/desktop/calendar" = {
+      show-weekdate = true;
+    };
+
+    dconf.settings."org/gnome/desktop/wm/preferences" = {
+      button-layout = "appmenu:minimize,maximize,close";
+    };
+
+    dconf.settings."org/gnome/desktop/wm/keybindings" = {
+      close = [ "<Super>q" ];
+    };
+
+    dconf.settings."org/gnome/settings-daemon/plugins/media-keys" = {
+      custom-keybindings = [ "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/" ];
+    };
+
+    dconf.settings."org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+      binding = "<Super>Return";
+      command = "ptyxis --new-window";
+      name = "Launch terminal";
+    };
+
+    dconf.settings."org/gnome/desktop/privacy" = {
+      report-technical-problems = false;
+    };
+
+    dconf.settings."org/gnome/system/location" = {
+      enabled = false;
+    };
+
     dconf.settings."org/gnome/shell" = {
       favorite-apps = [
         "org.gnome.Ptyxis.desktop"
