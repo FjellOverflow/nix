@@ -8,19 +8,18 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, nix-flatpak, home-manager }: {
+  outputs = { self, nixpkgs, nix-flatpak, home-manager }:
+  let
+    commonModules = [
+      nix-flatpak.nixosModules.nix-flatpak
+      home-manager.nixosModules.home-manager
+      { home-manager.useGlobalPkgs = true; home-manager.useUserPackages = true; }
+      ./common.nix
+    ];
+  in {
     nixosConfigurations = {
       vm = nixpkgs.lib.nixosSystem {
-        modules = [
-          nix-flatpak.nixosModules.nix-flatpak
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-          }
-          ./common.nix
-          ./machines/vm/default.nix
-        ];
+        modules = commonModules ++ [ ./machines/vm/default.nix ];
       };
     };
   };
