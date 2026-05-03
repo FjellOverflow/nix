@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, user, ... }:
 
 {
   networking.networkmanager.enable = true;
@@ -28,8 +28,8 @@
   services.mullvad-vpn.enable = true;
   services.syncthing = {
     enable = true;
-    user = "fjelloverflow";
-    dataDir = "/home/fjelloverflow/Syncthing";
+    user = user;
+    dataDir = "/home/${user}/Syncthing";
   };
 
   documentation.nixos.enable = false;

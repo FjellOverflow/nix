@@ -10,6 +10,7 @@
 
   outputs = { self, nixpkgs, nix-flatpak, home-manager }:
   let
+    user = "fjelloverflow";
     commonModules = [
       nix-flatpak.nixosModules.nix-flatpak
       home-manager.nixosModules.home-manager
@@ -19,6 +20,7 @@
   in {
     nixosConfigurations = {
       vm = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit user; };
         modules = commonModules ++ [ ./machines/vm/default.nix ];
       };
     };

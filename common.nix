@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, user, ... }:
 
 {
   time.timeZone = "Europe/Oslo";
@@ -15,9 +15,9 @@
   system.stateVersion = "25.11";
   security.sudo.wheelNeedsPassword = false;
 
-  users.users.fjelloverflow = {
+  users.users.${user} = {
     isNormalUser = true;
-    description = "FjellOverflow";
+    description = user;
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     shell = pkgs.fish;
   };
@@ -38,7 +38,7 @@
   services.tailscale.enable = true;
   virtualisation.docker.enable = true;
 
-  home-manager.users.fjelloverflow = { pkgs, ... }: {
+  home-manager.users.${user} = { pkgs, ... }: {
     home.stateVersion = "25.11";
 
     programs.fish = {
