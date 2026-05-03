@@ -96,7 +96,7 @@
     };
 
     dconf.settings."org/gnome/desktop/app-folders" = {
-      folder-children = [ "Disk" ];
+      folder-children = [ "Disk" "Media" "Office" "Settings" "Sync" "System" "Utilities" ];
     };
 
     dconf.settings."org/gnome/desktop/app-folders/folders/Disk" = {
@@ -105,6 +105,67 @@
         "org.gnome.baobab.desktop"
         "org.gnome.DiskUtility.desktop"
         "gparted.desktop"
+      ];
+    };
+
+    dconf.settings."org/gnome/desktop/app-folders/folders/Media" = {
+      name = "Media";
+      apps = [
+        "org.gnome.Decibels.desktop"
+        "org.gnome.Loupe.desktop"
+        "org.gnome.Showtime.desktop"
+        "org.videolan.VLC.desktop"
+      ];
+    };
+
+    dconf.settings."org/gnome/desktop/app-folders/folders/Office" = {
+      name = "Office";
+      apps = [
+        "org.libreoffice.LibreOffice.desktop"
+        "org.libreoffice.LibreOffice.Base.desktop"
+        "org.libreoffice.LibreOffice.Calc.desktop"
+        "org.libreoffice.LibreOffice.Draw.desktop"
+        "org.libreoffice.LibreOffice.Impress.desktop"
+        "org.libreoffice.LibreOffice.Math.desktop"
+        "org.libreoffice.LibreOffice.Writer.desktop"
+      ];
+    };
+
+    dconf.settings."org/gnome/desktop/app-folders/folders/Settings" = {
+      name = "Settings";
+      apps = [
+        "com.mattjakeman.ExtensionManager.desktop"
+        "org.gnome.Extensions.desktop"
+        "org.gnome.Settings.desktop"
+        "org.gnome.tweaks.desktop"
+      ];
+    };
+
+    dconf.settings."org/gnome/desktop/app-folders/folders/Sync" = {
+      name = "Sync";
+      apps = [
+        "org.freefilesync.FreeFileSync.desktop"
+        "syncthing-gtk.desktop"
+      ];
+    };
+
+    dconf.settings."org/gnome/desktop/app-folders/folders/System" = {
+      name = "System";
+      apps = [
+        "org.gnome.Connections.desktop"
+        "org.gnome.font-viewer.desktop"
+        "org.gnome.Logs.desktop"
+        "org.gnome.SystemMonitor.desktop"
+      ];
+    };
+
+    dconf.settings."org/gnome/desktop/app-folders/folders/Utilities" = {
+      name = "Utilities";
+      apps = [
+        "org.gnome.Calculator.desktop"
+        "org.gnome.Snapshot.desktop"
+        "org.gnome.TextEditor.desktop"
+        "org.gnome.Papers.desktop"
       ];
     };
   };
