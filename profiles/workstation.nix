@@ -43,6 +43,7 @@
     decibels
     deja-dup
     gnome-boxes
+    gnome-shell-extensions
     gnome-calculator
     gnome-connections
     gnome-disk-utility
@@ -85,6 +86,19 @@
   };
 
   home-manager.users.${user} = { ... }: {
+    dconf.settings."org/gnome/Ptyxis" = {
+      audible-bell = false;
+      visual-bell = false;
+      use-system-font = false;
+      font-name = "Fira Code 16";
+      default-profile-uuid = "00000000-0000-0000-0000-000000000001";
+      profile-uuids = [ "00000000-0000-0000-0000-000000000001" ];
+    };
+
+    dconf.settings."org/gnome/Ptyxis/Profiles/00000000-0000-0000-0000-000000000001" = {
+      palette = "nord";
+    };
+
     dconf.settings."org/gnome/desktop/interface" = {
       clock-format = "24h";
       clock-show-weekday = true;
@@ -121,6 +135,11 @@
     };
 
     dconf.settings."org/gnome/shell" = {
+      enabled-extensions = [
+        "places-menu@gnome-shell-extensions.gcampax.github.com"
+        "window-list@gnome-shell-extensions.gcampax.github.com"
+        "apps-menu@gnome-shell-extensions.gcampax.github.com"
+      ];
       favorite-apps = [
         "org.gnome.Ptyxis.desktop"
         "com.brave.Browser.desktop"
