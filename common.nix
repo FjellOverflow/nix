@@ -27,21 +27,25 @@
     wget
   ];
 
-  programs.fish = {
-    enable = true;
-    shellAliases = {
-      cat = "bat";
-    };
-    interactiveShellInit = ''
-      set fish_greeting
-    '';
-  };
-
-  programs.starship = {
-    enable = true;
-  };
+  programs.fish.enable = true;
 
   users.users.fjelloverflow.shell = pkgs.fish;
+
+  home-manager.users.fjelloverflow = { pkgs, ... }: {
+    home.stateVersion = "25.11";
+
+    programs.fish = {
+      enable = true;
+      shellAliases = {
+        cat = "bat";
+      };
+      interactiveShellInit = ''
+        set fish_greeting
+      '';
+    };
+
+    programs.starship.enable = true;
+  };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
