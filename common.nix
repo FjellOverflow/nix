@@ -26,6 +26,7 @@
     bat
     curl
     git
+    gnupg
     nano
     ncdu
     tmux
@@ -59,8 +60,12 @@
 	user = {
 	  name = "FjellOverflow";
           email = "fjelloverflow@protonmail.com";
+	  signingKey = "CC1E49D26EAF0457A093041D1F460E4716149438";
 	};
-      init.defaultBranch = "main";
+	commit = {
+	  gpgSign = true;
+	};
+        init.defaultBranch = "main";
       };
     };
   };
