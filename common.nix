@@ -3,7 +3,7 @@
 {
   age.secrets.ssh-private-key = {
     file = ./secrets/ssh-private-key.age;
-    path = "/home/${user}/.ssh/id_ed25519";
+    path = "/home/${user}/.ssh/agenix";
     owner = user;
     mode = "0600";
   };
