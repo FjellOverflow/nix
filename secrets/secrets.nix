@@ -1,6 +1,6 @@
 let
   vm = "ssh-ed25519 PLACEHOLDER_VM_HOST_PUBKEY";
-  allHosts = [ vm ];
+  hosts = [ vm ];
 in {
-  "ssh-private-key.age".publicKeys = allHosts;
+  "ssh-private-key.age".publicKeys = hosts;
 }

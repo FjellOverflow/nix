@@ -9,7 +9,7 @@
   };
   inputs.agenix = {
     url = "github:ryantm/agenix";
-    input.nixpkgs.follows = "nixpkgs";
+    inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { self, nixpkgs, nix-flatpak, home-manager, agenix }:
