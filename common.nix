@@ -1,6 +1,13 @@
 { config, pkgs, user, ... }:
 
 {
+  age.secrets.ssh-private-key = {
+    file = ./secrets/ssh-private-key.age;
+    path = "/home/${user}/.ssh/id_ed25519";
+    owner = user;
+    mode = "0600";
+  };
+
   time.timeZone = "Europe/Oslo";
   i18n.defaultLocale = "en_US.UTF-8";
 

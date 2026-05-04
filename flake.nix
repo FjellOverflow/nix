@@ -7,13 +7,18 @@
     url = "github:nix-community/home-manager/release-25.11";
     inputs.nixpkgs.follows = "nixpkgs";
   };
+  inputs.agenix = {
+    url = "github:ryantm/agenix";
+    input.nixpkgs.follows = "nixpkgs";
+  };
 
-  outputs = { self, nixpkgs, nix-flatpak, home-manager }:
+  outputs = { self, nixpkgs, nix-flatpak, home-manager, agenix }:
   let
     user = "fjelloverflow";
     commonModules = [
       nix-flatpak.nixosModules.nix-flatpak
       home-manager.nixosModules.home-manager
+      agenix.nixosModules.default
       { home-manager.useGlobalPkgs = true; home-manager.useUserPackages = true; }
       ./common.nix
     ];
