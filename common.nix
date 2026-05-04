@@ -3,11 +3,11 @@
 {
   age.secrets.ssh-private-key = {
     file = ./secrets/ssh-private-key.age;
-    path = "/home/${user}/.ssh/agenix";
+    path = "/home/${user}/.ssh/id_ed25519";
     owner = user;
     mode = "0600";
   };
-  age.identityPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+  age.identityPaths = [ "/etc/ssh/agenix" ];
 
   time.timeZone = "Europe/Oslo";
   i18n.defaultLocale = "en_US.UTF-8";
