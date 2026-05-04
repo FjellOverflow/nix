@@ -7,6 +7,7 @@
     owner = user;
     mode = "0600";
   };
+  age.identityPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
 
   time.timeZone = "Europe/Oslo";
   i18n.defaultLocale = "en_US.UTF-8";
