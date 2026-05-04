@@ -7,7 +7,7 @@ sudo nano /etc/nixos/configuration.nix
 
 sudo nixos-rebuild switch
 
-git clone https://github.com/FjellOverflow/snowflak.git && cd snoflak
+git clone https://github.com/FjellOverflow/nix.git && cd nix
 
 nano flake.nix
 
@@ -18,12 +18,12 @@ nano machines/mymachine/default.nix
 
 # add stuff & save
 
-sudo cp /etc/nixos/hardware-configuration.nix ./snoflak/machines/mymachine/hardware-configuration.nix
+sudo cp /etc/nixos/hardware-configuration.nix ./nix/machines/mymachine/hardware-configuration.nix
 
 sudo chown $(whoami):users machines/mymachine/hardware-configuration.nix
 
 sudo rm /etc/nixos
-sudo ln -s /etc/nixos ~/snoflak
+sudo ln -s /etc/nixos ~/nix
 
 sudo nixos-rebuild switch --flake .#mymachine
 ```
