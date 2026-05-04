@@ -4,17 +4,11 @@
   networking.networkmanager.enable = true;
 
   services.xserver.enable = true;
-  services.xserver.xkb = {
-    layout = "no";
-    variant = "";
-  };
   services.xserver.excludePackages = with pkgs; [ xterm ];
 
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
   services.gnome.core-apps.enable = false;
-
-  console.keyMap = "no";
 
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;

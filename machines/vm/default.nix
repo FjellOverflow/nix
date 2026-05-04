@@ -11,5 +11,11 @@
   
   networking.hostName = "vm";
 
+  services.xserver.xkb = {
+    layout = "no";
+    variant = "";
+  };
+  console.keyMap = "no";
+
   services.spice-webdavd.enable = true;
 }
