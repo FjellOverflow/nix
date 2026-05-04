@@ -52,5 +52,16 @@
     };
 
     programs.starship.enable = true;
+
+    programs.git = {
+      enable = true;
+      settings = {
+	user = {
+	  name = "FjellOverflow";
+          email = "fjelloverflow@protonmail.com";
+	};
+      init.defaultBranch = "main";
+      };
+    };
   };
 }
