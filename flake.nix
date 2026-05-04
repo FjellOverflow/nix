@@ -23,6 +23,10 @@
         specialArgs = { inherit user; };
         modules = commonModules ++ [ ./machines/vm/default.nix ];
       };
+     thinkpad = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit user; };
+        modules = commonModules ++ [ ./machines/thinkpad/default.nix ];
+      };
     };
   };
 }
