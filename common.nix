@@ -42,6 +42,7 @@
   ];
 
   programs.fish.enable = true;
+  programs.ssh.startAgent = true;
 
   services.tailscale.enable = true;
   virtualisation.docker.enable = true;
