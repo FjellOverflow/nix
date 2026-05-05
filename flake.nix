@@ -2,8 +2,14 @@
   description = "NixOS configurations";
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
-  inputs.nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.7.0";
-  inputs.nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
+  inputs.nix-flatpak = {
+    url = "github:gmodena/nix-flatpak/?ref=v0.7.0";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
+  inputs.nix-vscode-extensions = {
+    url = "github:nix-community/nix-vscode-extensions";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
   inputs.home-manager = {
     url = "github:nix-community/home-manager/release-25.11";
     inputs.nixpkgs.follows = "nixpkgs";
@@ -25,7 +31,7 @@
         specialArgs = { inherit user; };
         modules = commonModules ++ [ ./machines/vm/default.nix ];
       };
-     thinkpad = nixpkgs.lib.nixosSystem {
+      thinkpad = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit user; };
         modules = commonModules ++ [ ./machines/thinkpad/default.nix ];
       };
