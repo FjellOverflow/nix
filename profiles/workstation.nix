@@ -34,6 +34,7 @@
 
   environment.systemPackages = with pkgs; [
     baobab
+    nil
     brave
     decibels
     deja-dup
@@ -124,6 +125,9 @@
   home-manager.users.${user} = { ... }: {
     programs.vscode = {
       enable = true;
+      profiles.default.extensions = with pkgs.vscode-marketplace; [
+        jnoortheen.nix-ide
+      ];
       profiles.default.userSettings = {
         "editor.fontFamily" = "'FiraCode Nerd Font Mono'";
         "editor.fontLigatures" = true;
@@ -131,6 +135,8 @@
         "workbench.enableExperiments" = false;
         "chat.disableAIFeatures" = true;
         "workbench.startupEditor" = "none";
+        "nix.enableLanguageServer" = true;
+        "nix.serverPath" = "nil";
       };
     };
 
