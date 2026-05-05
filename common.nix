@@ -52,10 +52,7 @@
       '';
     };
 
-    programs.starship = {
-      enable = true;
-      settings.add_newline = false;
-    };
+    programs.starship.enable = true;
 
     programs.git = {
       enable = true;
