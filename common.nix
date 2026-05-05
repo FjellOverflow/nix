@@ -30,7 +30,7 @@
 
   users.users.${user} = {
     isNormalUser = true;
-    description = user;
+    description = "FjellOverflow";
     extraGroups = [
       "networkmanager"
       "wheel"

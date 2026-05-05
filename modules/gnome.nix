@@ -123,7 +123,6 @@
           "org.gnome.baobab.desktop"
           "org.gnome.DiskUtility.desktop"
           "gparted.desktop"
-          "org.gnome.DejaDup.desktop"
         ];
       };
 
