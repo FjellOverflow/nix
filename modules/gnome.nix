@@ -43,9 +43,11 @@
   home-manager.users.${user} =
     { ... }:
     {
+      home.file.".face".source = ../assets/avatar.png;
+
       dconf.settings."org/gnome/desktop/background" = {
-        picture-uri = "file://${../wallpapers/nixos.png}";
-        picture-uri-dark = "file://${../wallpapers/nixos.png}";
+        picture-uri = "file://${../assets/wallpapers/nixos.png}";
+        picture-uri-dark = "file://${../assets/wallpapers/nixos.png}";
         picture-options = "zoom";
       };
 
