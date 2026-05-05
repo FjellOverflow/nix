@@ -1,29 +1,30 @@
-Fresh install:
+# NixOS Config
+
+## Initial setup
 
 ```bash
-sudo nano /etc/nixos/configuration.nix
+nix-shell -p git
+git clone https://github.com/FjellOverflow/nix.git ~/nix && cd ~/nix
 
-# add git package & save
+sudo cp /etc/nixos/hardware-configuration.nix machines/<hostname>/hardware-configuration.nix
+sudo chown $(whoami): machines/<hostname>/hardware-configuration.nix
 
-sudo nixos-rebuild switch
+# create machines/<hostname>/default.nix (see existing machines/ for reference)
 
-git clone https://github.com/FjellOverflow/nix.git && cd nix
+sudo rm -rf /etc/nixos
+sudo ln -s ~/nix /etc/nixos
 
-nano flake.nix
+nh os switch --hostname <hostname>
+```
 
-# add mymachine config section
+## Apply latest config
 
-mkdir machines/mymachine
-nano machines/mymachine/default.nix
+```bash
+git pull && nh os switch
+```
 
-# add stuff & save
+## Cleanup
 
-sudo cp /etc/nixos/hardware-configuration.nix ./nix/machines/mymachine/hardware-configuration.nix
-
-sudo chown $(whoami):users machines/mymachine/hardware-configuration.nix
-
-sudo rm /etc/nixos
-sudo ln -s /etc/nixos ~/nix
-
-sudo nixos-rebuild switch --flake .#mymachine
+```bash
+nh clean all
 ```
