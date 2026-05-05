@@ -127,6 +127,8 @@
       enable = true;
       profiles.default.extensions = with pkgs.vscode-marketplace; [
         jnoortheen.nix-ide
+        vscode-icons-team.vscode-icons
+        zhuangtongfa.material-theme
       ];
       profiles.default.userSettings = {
         "editor.fontFamily" = "'FiraCode Nerd Font Mono'";
@@ -135,6 +137,8 @@
         "workbench.enableExperiments" = false;
         "chat.disableAIFeatures" = true;
         "workbench.startupEditor" = "none";
+        "workbench.colorTheme" = "One Dark Pro";
+        "workbench.iconTheme" = "vscode-icons";
         "nix.enableLanguageServer" = true;
         "nix.serverPath" = "nil";
       };
