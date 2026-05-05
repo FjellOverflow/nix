@@ -14,7 +14,7 @@ sudo chown $(whoami): machines/<hostname>/hardware-configuration.nix
 sudo rm -rf /etc/nixos
 sudo ln -s ~/nix /etc/nixos
 
-nh os switch --hostname <hostname>
+sudo nixos-rebuild switch --flake /etc/nixos#<hostname>
 ```
 
 ## Apply latest config
