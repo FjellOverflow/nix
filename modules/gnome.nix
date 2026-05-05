@@ -40,146 +40,159 @@
     ];
   };
 
-  home-manager.users.${user} = { ... }: {
-    dconf.settings."org/gnome/desktop/background" = {
-      picture-uri = "file://${../wallpapers/nixos.png}";
-      picture-uri-dark = "file://${../wallpapers/nixos.png}";
-      picture-options = "zoom";
-    };
+  home-manager.users.${user} =
+    { ... }:
+    {
+      dconf.settings."org/gnome/desktop/background" = {
+        picture-uri = "file://${../wallpapers/nixos.png}";
+        picture-uri-dark = "file://${../wallpapers/nixos.png}";
+        picture-options = "zoom";
+      };
 
-    dconf.settings."org/gnome/desktop/interface" = {
-      clock-format = "24h";
-      clock-show-weekday = true;
-      color-scheme = "prefer-dark";
-    };
+      dconf.settings."org/gnome/desktop/interface" = {
+        clock-format = "24h";
+        clock-show-weekday = true;
+        color-scheme = "prefer-dark";
+      };
 
-    dconf.settings."org/gnome/desktop/calendar" = {
-      show-weekdate = true;
-    };
+      dconf.settings."org/gnome/desktop/calendar" = {
+        show-weekdate = true;
+      };
 
-    dconf.settings."org/gnome/desktop/wm/preferences" = {
-      button-layout = "appmenu:minimize,maximize,close";
-    };
+      dconf.settings."org/gnome/desktop/wm/preferences" = {
+        button-layout = "appmenu:minimize,maximize,close";
+      };
 
-    dconf.settings."org/gnome/desktop/wm/keybindings" = {
-      close = [ "<Super>q" ];
-    };
+      dconf.settings."org/gnome/desktop/wm/keybindings" = {
+        close = [ "<Super>q" ];
+      };
 
-    dconf.settings."org/gnome/settings-daemon/plugins/media-keys" = {
-      custom-keybindings = [ "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/" ];
-    };
+      dconf.settings."org/gnome/settings-daemon/plugins/media-keys" = {
+        custom-keybindings = [
+          "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+        ];
+      };
 
-    dconf.settings."org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
-      binding = "<Super>Return";
-      command = "ptyxis --new-window";
-      name = "Launch terminal";
-    };
+      dconf.settings."org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+        binding = "<Super>Return";
+        command = "ptyxis --new-window";
+        name = "Launch terminal";
+      };
 
-    dconf.settings."org/gnome/desktop/privacy" = {
-      report-technical-problems = false;
-    };
+      dconf.settings."org/gnome/desktop/privacy" = {
+        report-technical-problems = false;
+      };
 
-    dconf.settings."org/gnome/system/location" = {
-      enabled = false;
-    };
+      dconf.settings."org/gnome/system/location" = {
+        enabled = false;
+      };
 
-    dconf.settings."org/gnome/shell" = {
-      enabled-extensions = [
-        "places-menu@gnome-shell-extensions.gcampax.github.com"
-        "window-list@gnome-shell-extensions.gcampax.github.com"
-        "apps-menu@gnome-shell-extensions.gcampax.github.com"
-      ];
-      favorite-apps = [
-        "org.gnome.Ptyxis.desktop"
-        "brave-browser.desktop"
-        "code.desktop"
-        "org.gnome.Nautilus.desktop"
-        "md.obsidian.Obsidian.desktop"
-      ];
-    };
+      dconf.settings."org/gnome/shell" = {
+        enabled-extensions = [
+          "places-menu@gnome-shell-extensions.gcampax.github.com"
+          "window-list@gnome-shell-extensions.gcampax.github.com"
+          "apps-menu@gnome-shell-extensions.gcampax.github.com"
+        ];
+        favorite-apps = [
+          "org.gnome.Ptyxis.desktop"
+          "brave-browser.desktop"
+          "code.desktop"
+          "org.gnome.Nautilus.desktop"
+          "md.obsidian.Obsidian.desktop"
+        ];
+      };
 
-    dconf.settings."org/gnome/desktop/app-folders" = {
-      folder-children = [ "Disk" "Graphics" "Media" "Office" "Settings" "Sync" "System" "Utilities" ];
-    };
+      dconf.settings."org/gnome/desktop/app-folders" = {
+        folder-children = [
+          "Disk"
+          "Graphics"
+          "Media"
+          "Office"
+          "Settings"
+          "Sync"
+          "System"
+          "Utilities"
+        ];
+      };
 
-    dconf.settings."org/gnome/desktop/app-folders/folders/Disk" = {
-      name = "Disk";
-      apps = [
-        "org.gnome.baobab.desktop"
-        "org.gnome.DiskUtility.desktop"
-        "gparted.desktop"
-        "org.gnome.DejaDup.desktop"
-      ];
-    };
+      dconf.settings."org/gnome/desktop/app-folders/folders/Disk" = {
+        name = "Disk";
+        apps = [
+          "org.gnome.baobab.desktop"
+          "org.gnome.DiskUtility.desktop"
+          "gparted.desktop"
+          "org.gnome.DejaDup.desktop"
+        ];
+      };
 
-    dconf.settings."org/gnome/desktop/app-folders/folders/Graphics" = {
-      name = "Graphics";
-      apps = [
-        "org.gimp.GIMP.desktop"
-        "org.inkscape.Inkscape.desktop"
-      ];
-    };
+      dconf.settings."org/gnome/desktop/app-folders/folders/Graphics" = {
+        name = "Graphics";
+        apps = [
+          "org.gimp.GIMP.desktop"
+          "org.inkscape.Inkscape.desktop"
+        ];
+      };
 
-    dconf.settings."org/gnome/desktop/app-folders/folders/Media" = {
-      name = "Media";
-      apps = [
-        "org.gnome.Decibels.desktop"
-        "org.gnome.Loupe.desktop"
-        "org.gnome.Showtime.desktop"
-        "org.videolan.VLC.desktop"
-      ];
-    };
+      dconf.settings."org/gnome/desktop/app-folders/folders/Media" = {
+        name = "Media";
+        apps = [
+          "org.gnome.Decibels.desktop"
+          "org.gnome.Loupe.desktop"
+          "org.gnome.Showtime.desktop"
+          "org.videolan.VLC.desktop"
+        ];
+      };
 
-    dconf.settings."org/gnome/desktop/app-folders/folders/Office" = {
-      name = "Office";
-      apps = [
-        "org.libreoffice.LibreOffice.desktop"
-        "org.libreoffice.LibreOffice.base.desktop"
-        "org.libreoffice.LibreOffice.calc.desktop"
-        "org.libreoffice.LibreOffice.draw.desktop"
-        "org.libreoffice.LibreOffice.impress.desktop"
-        "org.libreoffice.LibreOffice.math.desktop"
-        "org.libreoffice.LibreOffice.writer.desktop"
-      ];
-    };
+      dconf.settings."org/gnome/desktop/app-folders/folders/Office" = {
+        name = "Office";
+        apps = [
+          "org.libreoffice.LibreOffice.desktop"
+          "org.libreoffice.LibreOffice.base.desktop"
+          "org.libreoffice.LibreOffice.calc.desktop"
+          "org.libreoffice.LibreOffice.draw.desktop"
+          "org.libreoffice.LibreOffice.impress.desktop"
+          "org.libreoffice.LibreOffice.math.desktop"
+          "org.libreoffice.LibreOffice.writer.desktop"
+        ];
+      };
 
-    dconf.settings."org/gnome/desktop/app-folders/folders/Settings" = {
-      name = "Settings";
-      apps = [
-        "com.mattjakeman.ExtensionManager.desktop"
-        "org.gnome.Extensions.desktop"
-        "org.gnome.Settings.desktop"
-        "org.gnome.tweaks.desktop"
-      ];
-    };
+      dconf.settings."org/gnome/desktop/app-folders/folders/Settings" = {
+        name = "Settings";
+        apps = [
+          "com.mattjakeman.ExtensionManager.desktop"
+          "org.gnome.Extensions.desktop"
+          "org.gnome.Settings.desktop"
+          "org.gnome.tweaks.desktop"
+        ];
+      };
 
-    dconf.settings."org/gnome/desktop/app-folders/folders/Sync" = {
-      name = "Sync";
-      apps = [
-        "org.freefilesync.FreeFileSync.desktop"
-        "org.freefilesync.FreeFileSync.RealTimeSync.desktop"
-        "syncthing-ui.desktop"
-      ];
-    };
+      dconf.settings."org/gnome/desktop/app-folders/folders/Sync" = {
+        name = "Sync";
+        apps = [
+          "org.freefilesync.FreeFileSync.desktop"
+          "org.freefilesync.FreeFileSync.RealTimeSync.desktop"
+          "syncthing-ui.desktop"
+        ];
+      };
 
-    dconf.settings."org/gnome/desktop/app-folders/folders/System" = {
-      name = "System";
-      apps = [
-        "org.gnome.Connections.desktop"
-        "org.gnome.font-viewer.desktop"
-        "org.gnome.Logs.desktop"
-        "org.gnome.SystemMonitor.desktop"
-      ];
-    };
+      dconf.settings."org/gnome/desktop/app-folders/folders/System" = {
+        name = "System";
+        apps = [
+          "org.gnome.Connections.desktop"
+          "org.gnome.font-viewer.desktop"
+          "org.gnome.Logs.desktop"
+          "org.gnome.SystemMonitor.desktop"
+        ];
+      };
 
-    dconf.settings."org/gnome/desktop/app-folders/folders/Utilities" = {
-      name = "Utilities";
-      apps = [
-        "org.gnome.Calculator.desktop"
-        "org.gnome.Snapshot.desktop"
-        "org.gnome.TextEditor.desktop"
-        "org.gnome.Papers.desktop"
-      ];
+      dconf.settings."org/gnome/desktop/app-folders/folders/Utilities" = {
+        name = "Utilities";
+        apps = [
+          "org.gnome.Calculator.desktop"
+          "org.gnome.Snapshot.desktop"
+          "org.gnome.TextEditor.desktop"
+          "org.gnome.Papers.desktop"
+        ];
+      };
     };
-  };
 }

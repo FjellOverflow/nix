@@ -14,7 +14,10 @@
   };
 
   nixpkgs.config.allowUnfree = true;
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   nix.optimise.automatic = true;
   nix.gc = {
     automatic = true;
@@ -28,7 +31,11 @@
   users.users.${user} = {
     isNormalUser = true;
     description = user;
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+    ];
     shell = pkgs.fish;
   };
 
@@ -52,39 +59,41 @@
 
   virtualisation.docker.enable = true;
 
-  home-manager.users.${user} = { ... }: {
-    home.stateVersion = "25.11";
+  home-manager.users.${user} =
+    { ... }:
+    {
+      home.stateVersion = "25.11";
 
-    programs.fish = {
-      enable = true;
-      shellAliases = {
-        cat = "bat";
+      programs.fish = {
+        enable = true;
+        shellAliases = {
+          cat = "bat";
+        };
+        interactiveShellInit = ''
+          set fish_greeting
+        '';
       };
-      interactiveShellInit = ''
-        set fish_greeting
-      '';
-    };
 
-    programs.starship.enable = true;
+      programs.starship.enable = true;
 
-    programs.direnv = {
-      enable = true;
-      nix-direnv.enable = true;
-    };
+      programs.direnv = {
+        enable = true;
+        nix-direnv.enable = true;
+      };
 
-    programs.git = {
-      enable = true;
-      settings = {
-	user = {
-	  name = "FjellOverflow";
-          email = "fjelloverflow@protonmail.com";
-	  signingKey = "CC1E49D26EAF0457A093041D1F460E4716149438";
-	};
-	commit = {
-	  gpgSign = true;
-	};
-        init.defaultBranch = "main";
+      programs.git = {
+        enable = true;
+        settings = {
+          user = {
+            name = "FjellOverflow";
+            email = "fjelloverflow@protonmail.com";
+            signingKey = "CC1E49D26EAF0457A093041D1F460E4716149438";
+          };
+          commit = {
+            gpgSign = true;
+          };
+          init.defaultBranch = "main";
+        };
       };
     };
-  };
 }
