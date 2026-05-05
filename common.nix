@@ -1,11 +1,21 @@
-{ config, pkgs, user, ... }:
+{ pkgs, user, ... }:
 
 {
+  imports = [ ./modules/tailscale.nix ];
+
   time.timeZone = "Europe/Oslo";
   i18n.defaultLocale = "en_US.UTF-8";
+  i18n.extraLocaleSettings = {
+    LC_TIME = "nb_NO.UTF-8";
+    LC_NUMERIC = "nb_NO.UTF-8";
+    LC_MONETARY = "nb_NO.UTF-8";
+    LC_PAPER = "nb_NO.UTF-8";
+    LC_MEASUREMENT = "nb_NO.UTF-8";
+  };
 
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.optimise.automatic = true;
   nix.gc = {
     automatic = true;
     dates = "weekly";
@@ -35,11 +45,15 @@
   ];
 
   programs.fish.enable = true;
+  programs.nh = {
+    enable = true;
+    flake = "/etc/nixos";
+  };
 
   services.tailscale.enable = true;
   virtualisation.docker.enable = true;
 
-  home-manager.users.${user} = { pkgs, ... }: {
+  home-manager.users.${user} = { ... }: {
     home.stateVersion = "25.11";
 
     programs.fish = {
@@ -53,6 +67,11 @@
     };
 
     programs.starship.enable = true;
+
+    programs.direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
 
     programs.git = {
       enable = true;
