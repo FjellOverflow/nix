@@ -5,4 +5,6 @@
     enable = true;
     openFirewall = true;
   };
+
+  powerManagement.resumeCommands = "systemctl restart tailscaled";
 }
