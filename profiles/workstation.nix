@@ -56,7 +56,6 @@
     showtime
     snapshot
     syncthing
-    vscode
   ];
 
   environment.gnome.excludePackages = with pkgs; [
@@ -123,6 +122,17 @@
   };
 
   home-manager.users.${user} = { ... }: {
+    programs.vscode = {
+      enable = true;
+      userSettings = {
+        "editor.fontFamily" = "'FiraCode Nerd Font Mono'";
+        "editor.fontLigatures" = true;
+        "telemetry.telemetryLevel" = "off";
+        "workbench.enableExperiments" = false;
+        "chat.disableAIFeatures" = true;
+      };
+    };
+
     dconf.settings."org/gnome/Ptyxis" = {
       audible-bell = false;
       visual-bell = false;
