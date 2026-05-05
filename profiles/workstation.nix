@@ -80,6 +80,45 @@
   };
 
   home-manager.users.${user} = { ... }: {
+    home.file.".var/app/com.brave.Browser/config/BraveSoftware/Brave-Browser/policies/managed/policy.json".text = builtins.toJSON {
+      # Brave features
+      BraveRewardsDisabled = true;
+      BraveWalletDisabled = true;
+      BraveVPNDisabled = true;
+      BraveAIChatEnabled = false;
+      BraveP3AEnabled = false;
+      BraveStatsPingEnabled = false;
+      BraveWebDiscoveryEnabled = false;
+      BraveNewsDisabled = true;
+      BraveTalkDisabled = true;
+      BraveSpeedreaderEnabled = false;
+      BraveWaybackMachineEnabled = false;
+      BravePlaylistEnabled = false;
+      SyncDisabled = true;
+      # Chromium
+      PromotionalTabsEnabled = false;
+      MetricsReportingEnabled = false;
+      BackgroundModeEnabled = false;
+      PasswordManagerEnabled = false;
+      AutofillAddressEnabled = false;
+      AutofillCreditCardEnabled = false;
+      TranslateEnabled = false;
+      SpellCheckServiceEnabled = false;
+      SearchSuggestEnabled = false;
+      NetworkPredictionOptions = 2;
+      DefaultBrowserSettingEnabled = false;
+      UserFeedbackAllowed = false;
+      SafeBrowsingExtendedReportingEnabled = false;
+      ImportBrowserSettings = false;
+      DnsOverHttpsMode = "secure";
+      DnsOverHttpsTemplates = "https://dns.adguard-dns.com/dns-query";
+      # Extensions
+      ExtensionInstallForcelist = [
+        "nngceckbapebfimnlniiiahkandclblb;https://clients2.google.com/service/update2/crx"
+        "aapbdbdomjkkjkaonfhkkikfgjllcleb;https://clients2.google.com/service/update2/crx"
+      ];
+    };
+
     dconf.settings."org/gnome/Ptyxis" = {
       audible-bell = false;
       visual-bell = false;
