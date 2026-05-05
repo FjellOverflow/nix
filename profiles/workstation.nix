@@ -34,6 +34,7 @@
 
   environment.systemPackages = with pkgs; [
     baobab
+    brave
     decibels
     deja-dup
     gnome-boxes
@@ -66,7 +67,6 @@
     enable = true;
     packages = [
       "com.bitwarden.desktop"
-      "com.brave.Browser"
       "com.mattjakeman.ExtensionManager"
       "com.spotify.Client"
       "com.usebruno.Bruno"
@@ -106,6 +106,10 @@
     SearchSuggestEnabled = false;
     NetworkPredictionOptions = 2;
     DefaultBrowserSettingEnabled = false;
+    DefaultSearchProviderEnabled = true;
+    DefaultSearchProviderName = "DuckDuckGo";
+    DefaultSearchProviderSearchURL = "https://duckduckgo.com/?q={searchTerms}";
+    DefaultSearchProviderSuggestURL = "https://duckduckgo.com/ac/?q={searchTerms}&type=list";
     UserFeedbackAllowed = false;
     SafeBrowsingExtendedReportingEnabled = false;
     ImportBrowserSettings = false;
@@ -176,7 +180,7 @@
       ];
       favorite-apps = [
         "org.gnome.Ptyxis.desktop"
-        "com.brave.Browser.desktop"
+        "brave-browser.desktop"
         "code.desktop"
         "org.gnome.Nautilus.desktop"
         "md.obsidian.Obsidian.desktop"
