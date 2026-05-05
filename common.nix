@@ -50,7 +50,6 @@
     flake = "/etc/nixos";
   };
 
-  services.tailscale.enable = true;
   virtualisation.docker.enable = true;
 
   home-manager.users.${user} = { ... }: {
