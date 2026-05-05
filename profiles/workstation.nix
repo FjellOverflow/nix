@@ -124,12 +124,13 @@
   home-manager.users.${user} = { ... }: {
     programs.vscode = {
       enable = true;
-      userSettings = {
+      profiles.default.userSettings = {
         "editor.fontFamily" = "'FiraCode Nerd Font Mono'";
         "editor.fontLigatures" = true;
         "telemetry.telemetryLevel" = "off";
         "workbench.enableExperiments" = false;
         "chat.disableAIFeatures" = true;
+        "workbench.startupEditor" = "none";
       };
     };
 
