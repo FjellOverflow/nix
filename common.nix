@@ -88,7 +88,7 @@
           user = {
             name = "FjellOverflow";
             email = "fjelloverflow@protonmail.com";
-            signingKey = "CC1E49D26EAF0457A093041D1F460E4716149438";
+            signingKey = "1F460E4716149438";
           };
           commit = {
             gpgSign = true;
