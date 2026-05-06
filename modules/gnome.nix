@@ -10,6 +10,7 @@
 
   environment.systemPackages = with pkgs; [
     baobab
+    dconf-editor
     decibels
     deja-dup
     gnome-boxes
@@ -25,6 +26,7 @@
     loupe
     nautilus
     papers
+    seahorse
     showtime
     snapshot
   ];
@@ -160,6 +162,7 @@
       dconf.settings."org/gnome/desktop/app-folders/folders/Settings" = {
         name = "Settings";
         apps = [
+          "ca.desrt.dconf-editor.desktop"
           "com.mattjakeman.ExtensionManager.desktop"
           "org.gnome.Extensions.desktop"
           "org.gnome.Settings.desktop"
@@ -182,6 +185,7 @@
           "org.gnome.Connections.desktop"
           "org.gnome.font-viewer.desktop"
           "org.gnome.Logs.desktop"
+          "org.gnome.seahorse.Application.desktop"
           "org.gnome.SystemMonitor.desktop"
         ];
       };
