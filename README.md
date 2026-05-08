@@ -6,6 +6,7 @@
 nix-shell -p git
 git clone https://github.com/FjellOverflow/nix.git ~/nix && cd ~/nix
 
+mkdir machines/<hostname>
 sudo cp /etc/nixos/hardware-configuration.nix machines/<hostname>/hardware-configuration.nix
 sudo chown $(whoami): machines/<hostname>/hardware-configuration.nix
 
