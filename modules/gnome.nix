@@ -185,7 +185,6 @@
           "org.gnome.Connections.desktop"
           "org.gnome.font-viewer.desktop"
           "org.gnome.Logs.desktop"
-          "org.gnome.seahorse.Application.desktop"
           "org.gnome.SystemMonitor.desktop"
         ];
       };
@@ -195,8 +194,9 @@
         apps = [
           "org.gnome.Calculator.desktop"
           "org.gnome.Snapshot.desktop"
-          "org.gnome.TextEditor.desktop"
           "org.gnome.Papers.desktop"
+          "org.gnome.TextEditor.desktop"
+          "org.gnome.seahorse.Application.desktop"
         ];
       };
     };
