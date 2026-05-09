@@ -43,6 +43,10 @@
           specialArgs = { inherit user; };
           modules = commonModules ++ [ ./machines/thinkpad/default.nix ];
         };
+        brick = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit user; };
+          modules = commonModules ++ [ ./machines/brick/default.nix ];
+        };
       };
     };
 }
