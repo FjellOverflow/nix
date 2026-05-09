@@ -22,6 +22,7 @@
           "workbench.startupEditor" = "none";
           "workbench.colorTheme" = "One Dark Pro";
           "workbench.iconTheme" = "vscode-icons";
+          "vsicons.dontShowNewVersionMessage" = true;
           "nix.enableLanguageServer" = true;
           "nix.serverPath" = "nil";
         };
