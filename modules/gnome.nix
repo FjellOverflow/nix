@@ -100,7 +100,7 @@
         favorite-apps = [
           "org.gnome.Ptyxis.desktop"
           "brave-browser.desktop"
-          "code.desktop"
+          "codium.desktop"
           "org.gnome.Nautilus.desktop"
           "md.obsidian.Obsidian.desktop"
         ];
