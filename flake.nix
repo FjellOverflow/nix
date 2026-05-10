@@ -47,6 +47,10 @@
           specialArgs = { inherit user; };
           modules = commonModules ++ [ ./machines/brick/default.nix ];
         };
+        gigabyte = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit user; };
+          modules = commonModules ++ [ ./machines/gigabyte/default.nix ];
+        };
       };
     };
 }
