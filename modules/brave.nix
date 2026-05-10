@@ -41,7 +41,9 @@
     DnsOverHttpsTemplates = "https://dns.adguard-dns.com/dns-query";
     # Extensions
     ExtensionInstallForcelist = [
+      # Bitwarden
       "nngceckbapebfimnlniiiahkandclblb;https://clients2.google.com/service/update2/crx"
+      # Google Translate
       "aapbdbdomjkkjkaonfhkkikfgjllcleb;https://clients2.google.com/service/update2/crx"
     ];
   };
