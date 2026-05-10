@@ -7,7 +7,7 @@
     ../modules/syncthing.nix
     ../modules/terminal.nix
     ../modules/brave.nix
-    ../modules/vscode.nix
+    ../modules/vscodium.nix
   ];
 
   networking.networkmanager.enable = true;

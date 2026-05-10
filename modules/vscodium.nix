@@ -8,7 +8,8 @@
     {
       programs.vscode = {
         enable = true;
-        profiles.default.extensions = with pkgs.vscode-marketplace; [
+        package = pkgs.vscodium;
+        profiles.default.extensions = with pkgs.open-vsx; [
           jnoortheen.nix-ide
           vscode-icons-team.vscode-icons
           zhuangtongfa.material-theme
