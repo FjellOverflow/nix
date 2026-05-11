@@ -13,6 +13,7 @@
           jnoortheen.nix-ide
           vscode-icons-team.vscode-icons
           zhuangtongfa.material-theme
+          jeanp413.open-remote-ssh
         ];
         profiles.default.userSettings = {
           "editor.fontFamily" = "'FiraCode Nerd Font Mono'";
