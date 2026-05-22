@@ -35,6 +35,11 @@
     gnome-tour
   ];
 
+  programs.kdeconnect = {
+    enable = true;
+    package = pkgs.gnomeExtensions.gsconnect;
+  };
+
   services.flatpak = {
     enable = true;
     packages = [
@@ -96,6 +101,7 @@
           "places-menu@gnome-shell-extensions.gcampax.github.com"
           "window-list@gnome-shell-extensions.gcampax.github.com"
           "apps-menu@gnome-shell-extensions.gcampax.github.com"
+          "gsconnect@andyholmes.github.io"
         ];
         favorite-apps = [
           "org.gnome.Ptyxis.desktop"
