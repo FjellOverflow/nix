@@ -62,6 +62,8 @@
     flake = "/etc/nixos";
   };
 
+  programs.nix-ld.enable = true;
+
   virtualisation.docker.enable = true;
 
   home-manager.users.${user} =
@@ -77,6 +79,7 @@
         interactiveShellInit = ''
           set fish_greeting
           fastfetch
+          mise activate fish | source
         '';
       };
 
