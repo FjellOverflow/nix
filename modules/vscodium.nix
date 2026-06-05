@@ -8,7 +8,7 @@
     {
       programs.vscode = {
         enable = true;
-        package = pkgs.vscodium;
+        package = pkgs.vscodium.fhs;
         profiles.default.extensions = with pkgs.open-vsx; [
           jnoortheen.nix-ide
           vscode-icons-team.vscode-icons
@@ -18,6 +18,7 @@
         profiles.default.userSettings = {
           "editor.fontFamily" = "'FiraCode Nerd Font Mono'";
           "editor.fontLigatures" = true;
+          "editor.wordWrap" = "on";
           "telemetry.telemetryLevel" = "off";
           "workbench.enableExperiments" = false;
           "chat.disableAIFeatures" = true;
