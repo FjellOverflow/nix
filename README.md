@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/NixOS-25.11-5277C3?logo=nixos&logoColor=white"/>
+  <img src="https://img.shields.io/badge/NixOS-26.05-5277C3?logo=nixos&logoColor=white"/>
   &ensp;
   <img src="https://img.shields.io/badge/Flakes-enabled-5277C3?logo=nixos&logoColor=white"/>
   &ensp;
@@ -28,8 +28,8 @@ My personal [NixOS](https://nixos.org/) configuration as a [Nix flake](https://n
 
 | Flake input                                                                     | Description                  |
 | ------------------------------------------------------------------------------- | ---------------------------- |
-| [nixpkgs](https://github.com/NixOS/nixpkgs) `25.11`                             | NixOS packages               |
-| [home-manager](https://github.com/nix-community/home-manager) `25.11`           | User environment & dotfiles  |
+| [nixpkgs](https://github.com/NixOS/nixpkgs) `26.05`                             | NixOS packages               |
+| [home-manager](https://github.com/nix-community/home-manager) `26.05`           | User environment & dotfiles  |
 | [nix-flatpak](https://github.com/gmodena/nix-flatpak)                           | Declarative Flatpak installs |
 | [nix-vscode-extensions](https://github.com/nix-community/nix-vscode-extensions) | VSCodium extensions          |
 
