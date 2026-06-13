@@ -42,7 +42,6 @@
   environment.systemPackages = with pkgs; [
     bat
     curl
-    fastfetch
     git
     gnupg
     nano
@@ -78,7 +77,6 @@
         };
         interactiveShellInit = ''
           set fish_greeting
-          fastfetch
           mise activate fish | source
         '';
       };
