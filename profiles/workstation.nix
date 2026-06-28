@@ -1,4 +1,9 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  lib,
+  user,
+  ...
+}:
 
 {
   imports = [
@@ -49,4 +54,17 @@
     "org.libreoffice.LibreOffice"
     "org.videolan.VLC"
   ];
+
+  virtualisation.libvirtd = {
+    enable = true;
+    qemu = {
+      package = pkgs.qemu_kvm;
+      runAsRoot = true;
+      swtpm.enable = true;
+    };
+  };
+
+  users.users.${user} = {
+    extraGroups = [ "libvirtd" ];
+  };
 }
