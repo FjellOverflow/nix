@@ -11,6 +11,10 @@
     url = "github:nix-community/home-manager/release-26.05";
     inputs.nixpkgs.follows = "nixpkgs";
   };
+  inputs.nix-index-database = {
+    url = "github:nix-community/nix-index-database";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
 
   outputs =
     {
@@ -19,6 +23,7 @@
       nix-flatpak,
       nix-vscode-extensions,
       home-manager,
+      nix-index-database,
     }:
     let
       user = "fjelloverflow";
@@ -30,6 +35,7 @@
           home-manager.useUserPackages = true;
         }
         { nixpkgs.overlays = [ nix-vscode-extensions.overlays.default ]; }
+        nix-index-database.nixosModules.nix-index
         ./common.nix
       ];
     in

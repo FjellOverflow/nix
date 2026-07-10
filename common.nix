@@ -75,6 +75,9 @@
     ];
   };
 
+  programs.nix-index.enable = true;
+  programs.nix-index-database.comma.enable = true;
+
   virtualisation.docker.enable = true;
 
   home-manager.users.${user} =
