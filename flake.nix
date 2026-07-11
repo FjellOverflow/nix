@@ -15,6 +15,7 @@
     url = "github:nix-community/nix-index-database";
     inputs.nixpkgs.follows = "nixpkgs";
   };
+  inputs.nixpkgs-2511.url = "github:NixOS/nixpkgs/nixos-25.11";
 
   outputs =
     {
@@ -24,6 +25,7 @@
       nix-vscode-extensions,
       home-manager,
       nix-index-database,
+      nixpkgs-2511,
     }:
     let
       user = "fjelloverflow";
@@ -50,7 +52,7 @@
           modules = commonModules ++ [ ./machines/thinkpad/default.nix ];
         };
         brick = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit user; };
+          specialArgs = { inherit user nixpkgs-2511; };
           modules = commonModules ++ [ ./machines/brick/default.nix ];
         };
         gigabyte = nixpkgs.lib.nixosSystem {
