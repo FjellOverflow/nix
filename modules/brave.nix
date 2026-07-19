@@ -7,7 +7,7 @@
     "x-scheme-handler/http" = "brave-browser.desktop";
     "x-scheme-handler/https" = "brave-browser.desktop";
     "text/html" = "brave-browser.desktop";
-    "application/xhtml+html" = "brave-browser.desktop";
+    "application/xhtml+xml" = "brave-browser.desktop";
   };
 
   environment.etc."brave/policies/managed/policy.json".text = builtins.toJSON {
