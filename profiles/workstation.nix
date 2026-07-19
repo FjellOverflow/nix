@@ -8,6 +8,7 @@
 {
   imports = [
     ../modules/brave.nix
+    ../modules/fonts.nix
     ../modules/gnome.nix
     ../modules/gnupg.nix
     ../modules/mise.nix
@@ -35,10 +36,6 @@
   };
 
   documentation.nixos.enable = false;
-
-  fonts.packages = with pkgs; [
-    nerd-fonts.fira-code
-  ];
 
   environment.systemPackages = with pkgs; [
     gparted
