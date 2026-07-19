@@ -40,13 +40,6 @@
     package = pkgs.gnomeExtensions.gsconnect;
   };
 
-  services.flatpak = {
-    enable = true;
-    packages = [
-      "com.mattjakeman.ExtensionManager"
-    ];
-  };
-
   home-manager.users.${user} =
     { ... }:
     {

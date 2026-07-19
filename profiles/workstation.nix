@@ -41,8 +41,10 @@
     gparted
   ];
 
+  services.flatpak.enable = true;
   services.flatpak.packages = [
     "com.bitwarden.desktop"
+    "com.mattjakeman.ExtensionManager"
     "com.spotify.Client"
     "com.usebruno.Bruno"
     "md.obsidian.Obsidian"
