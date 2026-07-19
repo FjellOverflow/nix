@@ -7,11 +7,12 @@
 
 {
   imports = [
+    ../modules/brave.nix
     ../modules/gnome.nix
+    ../modules/gnupg.nix
     ../modules/mullvad.nix
     ../modules/syncthing.nix
     ../modules/terminal.nix
-    ../modules/brave.nix
     ../modules/vscodium.nix
   ];
 
