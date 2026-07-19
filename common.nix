@@ -101,7 +101,9 @@
         };
         interactiveShellInit = ''
           set fish_greeting
-          mise activate fish | source
+          if type -q mise
+            mise activate fish | source
+          end
         '';
       };
 
