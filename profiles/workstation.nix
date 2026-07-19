@@ -10,6 +10,7 @@
     ../modules/brave.nix
     ../modules/gnome.nix
     ../modules/gnupg.nix
+    ../modules/mise.nix
     ../modules/mullvad.nix
     ../modules/syncthing.nix
     ../modules/terminal.nix
@@ -41,7 +42,6 @@
 
   environment.systemPackages = with pkgs; [
     gparted
-    mise
   ];
 
   services.flatpak.packages = [
