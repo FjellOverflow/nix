@@ -1,7 +1,10 @@
 { pkgs, user, ... }:
 
 {
-  imports = [ ./modules/tailscale.nix ];
+  imports = [
+    ./modules/tailscale.nix
+    ./modules/docker.nix
+  ];
 
   time.timeZone = "Europe/Oslo";
   i18n.defaultLocale = "en_US.UTF-8";
@@ -34,7 +37,6 @@
     extraGroups = [
       "networkmanager"
       "wheel"
-      "docker"
     ];
     shell = pkgs.fish;
   };
@@ -61,21 +63,31 @@
   programs.nix-ld = {
     enable = true;
     libraries = with pkgs; [
-      alsa-lib atk
-      cairo cups
+      alsa-lib
+      atk
+      cairo
+      cups
       dbus
       expat
-      glib gtk3
-      libgbm libx11 libxcb libxkbcommon libxcomposite libxdamage libxext libxfixes libxrandr
-      nss nspr
+      glib
+      gtk3
+      libgbm
+      libx11
+      libxcb
+      libxkbcommon
+      libxcomposite
+      libxdamage
+      libxext
+      libxfixes
+      libxrandr
+      nss
+      nspr
       pango
     ];
   };
 
   programs.nix-index.enable = true;
   programs.nix-index-database.comma.enable = true;
-
-  virtualisation.docker.enable = true;
 
   home-manager.users.${user} =
     { ... }:
