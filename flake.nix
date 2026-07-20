@@ -38,7 +38,7 @@
         }
         { nixpkgs.overlays = [ nix-vscode-extensions.overlays.default ]; }
         nix-index-database.nixosModules.nix-index
-        ./common.nix
+        ./base/common.nix
       ];
     in
     {
