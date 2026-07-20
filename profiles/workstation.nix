@@ -1,6 +1,5 @@
 {
   pkgs,
-  lib,
   user,
   ...
 }:
@@ -11,6 +10,7 @@
     ../modules/fonts.nix
     ../modules/gnome.nix
     ../modules/gnupg.nix
+    ../modules/keyboard.nix
     ../modules/mise.nix
     ../modules/mullvad.nix
     ../modules/syncthing.nix
@@ -19,12 +19,6 @@
   ];
 
   networking.networkmanager.enable = true;
-
-  services.xserver.xkb = {
-    layout = lib.mkDefault "no";
-    variant = lib.mkDefault "";
-  };
-  console.keyMap = lib.mkDefault "no";
 
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
