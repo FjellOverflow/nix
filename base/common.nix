@@ -90,7 +90,7 @@
   programs.nix-index-database.comma.enable = true;
 
   home-manager.users.${user} =
-    { ... }:
+    _:
     {
       home.stateVersion = "25.11";
 

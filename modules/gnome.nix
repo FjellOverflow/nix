@@ -46,7 +46,7 @@
   ];
 
   home-manager.users.${user} =
-    { ... }:
+    _:
     {
       home.file.".face".source = ../assets/avatar.png;
 

@@ -4,7 +4,7 @@
   environment.systemPackages = with pkgs; [ ptyxis ];
 
   home-manager.users.${user} =
-    { ... }:
+    _:
     {
       dconf.settings."org/gnome/Ptyxis" = {
         audible-bell = false;

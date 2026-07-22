@@ -3,7 +3,7 @@
 {
   services.syncthing = {
     enable = true;
-    user = user;
+    inherit user;
     dataDir = "/home/${user}/Syncthing";
     configDir = "/home/${user}/.config/syncthing";
   };
