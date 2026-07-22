@@ -16,6 +16,10 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
   inputs.nixpkgs-2511.url = "github:NixOS/nixpkgs/nixos-25.11";
+  inputs.git-hooks = {
+    url = "github:cachix/git-hooks.nix";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
 
   outputs =
     {
@@ -26,9 +30,12 @@
       home-manager,
       nix-index-database,
       nixpkgs-2511,
+      git-hooks,
     }:
     let
       user = "fjelloverflow";
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
       commonModules = [
         nix-flatpak.nixosModules.nix-flatpak
         home-manager.nixosModules.home-manager
@@ -42,6 +49,20 @@
       ];
     in
     {
+      checks.${system}.pre-commit = git-hooks.lib.${system}.run {
+        src = ./.;
+        hooks = {
+          statix.enable = true;
+          deadnix.enable = true;
+          nixfmt.enable = true;
+        };
+      };
+
+      devShells.${system}.default = pkgs.mkShell {
+        inherit (self.checks.${system}.pre-commit) shellHook;
+        buildInputs = self.checks.${system}.pre-commit.enabledPackages;
+      };
+
       nixosConfigurations = {
         vm = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit user; };
