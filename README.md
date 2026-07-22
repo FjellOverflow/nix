@@ -12,6 +12,8 @@
   <img src="https://img.shields.io/badge/Flakes-enabled-5277C3?logo=nixos&logoColor=white"/>
   &ensp;
   <img src="https://img.shields.io/badge/Home_Manager-integrated-5277C3?logo=nixos&logoColor=white"/>
+  &ensp;
+  <img src="https://img.shields.io/github/actions/workflow/status/FjellOverflow/nix/ci.yaml?branch=main&label=CI"/>
 </p>
 
 <p align="center">
