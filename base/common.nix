@@ -89,44 +89,42 @@
   programs.nix-index.enable = true;
   programs.nix-index-database.comma.enable = true;
 
-  home-manager.users.${user} =
-    _:
-    {
-      home.stateVersion = "25.11";
+  home-manager.users.${user} = _: {
+    home.stateVersion = "25.11";
 
-      programs.fish = {
-        enable = true;
-        shellAliases = {
-          cat = "bat";
-        };
-        interactiveShellInit = ''
-          set fish_greeting
-          if type -q mise
-            mise activate fish | source
-          end
-        '';
+    programs.fish = {
+      enable = true;
+      shellAliases = {
+        cat = "bat";
       };
+      interactiveShellInit = ''
+        set fish_greeting
+        if type -q mise
+          mise activate fish | source
+        end
+      '';
+    };
 
-      programs.starship.enable = true;
+    programs.starship.enable = true;
 
-      programs.direnv = {
-        enable = true;
-        nix-direnv.enable = true;
-      };
+    programs.direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
 
-      programs.git = {
-        enable = true;
-        settings = {
-          user = {
-            name = "FjellOverflow";
-            email = "fjelloverflow@protonmail.com";
-            signingKey = "1F460E4716149438";
-          };
-          commit = {
-            gpgSign = true;
-          };
-          init.defaultBranch = "main";
+    programs.git = {
+      enable = true;
+      settings = {
+        user = {
+          name = "FjellOverflow";
+          email = "fjelloverflow@protonmail.com";
+          signingKey = "1F460E4716149438";
         };
+        commit = {
+          gpgSign = true;
+        };
+        init.defaultBranch = "main";
       };
     };
+  };
 }
