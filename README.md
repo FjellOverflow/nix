@@ -16,6 +16,9 @@
   <img src="https://img.shields.io/github/actions/workflow/status/FjellOverflow/nix/ci.yaml?branch=main&label=CI"/>
 </p>
 
+> [!WARNING]
+> This repository is no longer updated or maintained, as all its functionality it is now a part of [FjellOverflow/nisse](https://github.com/FjellOverflow/nisse).
+
 <p align="center">
   <a href="#overview">Overview</a> |
   <a href="#structure">Structure</a> |
